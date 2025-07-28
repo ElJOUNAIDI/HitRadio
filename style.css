@@ -14,8 +14,11 @@
 /* body */
 body {
   background-color: var(--body--background-color);
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   line-height: 1.6;
+}
+section {
+  padding: 20px 0;
 }
 /* header */
 header {
@@ -25,15 +28,15 @@ header {
   text-align: center;
 }
 header .navbar {
-  background-color: var(--primary-color)!important;
+  background-color: var(--primary-color) !important;
 }
 header .navbar-brand {
-  color: var(--text-color)!important;
+  color: var(--text-color) !important;
   font-size: 2rem;
 }
 
-header .navbar-brand strong{
-    color: var(--secondary-color);
+header .navbar-brand strong {
+  color: var(--secondary-color);
 }
 header .container-fluid h1 {
   position: relative;
@@ -44,10 +47,10 @@ header .container-fluid h1 {
   padding: 0;
 }
 header .container-fluid h1::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 80%;
-  left: 95% ;
+  left: 95%;
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -56,31 +59,134 @@ header .container-fluid h1::before {
   margin: 0;
 }
 .container-fluid .pays {
-    color: var(--body--background-color);
-    font-weight: bold;
+  color: var(--body--background-color);
+  font-weight: bold;
 }
 /* search button */
 .button_search button {
-    border: 0px solid var(--secondary-color);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    background-color: var(--body--background-color);
+  border: 0px solid var(--secondary-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: var(--body--background-color);
 }
 .button_search button:hover {
-    background-color: none;
+  background-color: none;
 }
 .button_search button i {
-    color: var(--text-color);
-    font-size: 20px;
+  color: var(--text-color);
+  font-size: 20px;
 }
 .button_search button:hover i {
-    color: var(--secondary-color);
+  color: var(--secondary-color);
 }
-header .container-fluid .icons i{
-    cursor: pointer;
+header .container-fluid .icons i {
+  cursor: pointer;
 }
 header .container-fluid .icons .fa-solid {
-    color: white !important;
+  color: white !important;
+  font-size: 20px;
+}
+/* header Responsive */
+@media (max-width: 480px) {
+  header .container-fluid {
+    align-items: center;
+  }
+  header .container-fluid h1 a {
+    font-size: 30px;
+    text-align: center;
+  }
+  .button_search {
+    margin-top: 20px;
+  }
+  .container-fluid .icons i {
+    margin-top: 20px;
+  }
+}
+/* hero */
+.hero {
+  color: var(--text-color);
+  padding: 40px 0;
+}
+.hero .container .hero-content .img_weather img {
+  width: 400px;
+  margin: 0 auto;
+}
+.hero .container .hero-content .weather_info {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 30px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: var(--secondary-color);
+}
+.hero .container .hero-content .weather_info p{
+  color: var(--text-color);
+}
+/* hero responsive */
+@media (max-width: 480px) {
+  .hero .container .hero-content .img_weather img {
+    width: 150px;
+  }
+  .hero .container .hero-content .weather_info {
+    font-size: 15px;
+  }
+}
+/* Humidity and wind  */
+.humidity_wind .container .humidity{
+  font-size: 35px;
+  font-weight: bold;
+}
+.humidity_wind .container .humidity .humidity_info .humidity_details p , .wind_details p{
+  color: var(--secondary-color);
+}
+.humidity_wind .container .wind_info{
+  font-size: 35px;
+  font-weight: bold;
+}
+/* Humidity and wind responsive */
+@media (max-width: 480px) {
+  .humidity_wind .container .humidity,
+  .humidity_wind .container .wind_info {
     font-size: 20px;
+  }
+}
+/* forecast */
+.forecast .container .text-center {
+  color: var(--secondary-color);
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+.forecast_cards  .card{
+  background-color: var(--body--background-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: 10px;
+  padding: 20px 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+/* forecast responsive */
+@media (max-width: 480px) {
+  .forecast .container .text-center {
+    font-size: 20px;
+  }
+  .forecast_cards .card {
+    padding: 10px;
+    font-weight: bold;
+  }
+  .forecast_cards .card p{
+    font-size: 8px;
+  }
+}
+/* footer */
+footer {
+  background-color: var(--primary-color);
+  color: var(--body--background-color);
+  padding: 20px 0;
+}
+footer .container {
+  margin: 0 auto;
 }

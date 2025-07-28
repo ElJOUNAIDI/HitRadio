@@ -31,8 +31,10 @@
     <header>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <h1><a class="navbar-brand" href="#"><strong>H</strong>itRadio</a></h1>
-          <div class="pays">Casablanca, 27°C</div>
+          <h1>
+            <a class="navbar-brand" href="#"><strong>H</strong>itRadio</a>
+          </h1>
+          <div class="pays location_date">Casablanca, 27°C</div>
           <div class="button_search">
             <form class="d-flex" role="search">
               <input
@@ -52,6 +54,86 @@
         </div>
       </nav>
     </header>
+    <!-- main -->
+    <main>
+      <!-- hero -->
+      <section class="hero">
+        <div class="container">
+          <div
+            class="hero-content d-flex justify-content-around align-items-center"
+          >
+            <div class="img_weather">
+              <img src="./image/weather/clouds.svg" alt="" srcset="" />
+            </div>
+            <div class="weather_info">
+              <h2 class="city">Casablanca</h2>
+              <p class="temperature">27°C</p>
+              <p class="description">Sunny</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Humidity and wind  -->
+      <section class="humidity_wind">
+        <div class="container">
+          <div class="humidity d-flex justify-content-around align-items-center">
+            <div class="humidity_info d-flex  align-items-center">
+              <i class="fa-solid fa-droplet"></i>
+              <div class="humidity_details d-flex flex-column align-items-center">
+                <p>Humidity</p>
+                <span>60%</span>
+              </div>
+            </div>
+            <div class="wind_info d-flex  align-items-center">
+              <i class="fa-solid fa-wind"></i>
+              <div class="wind_details d-flex flex-column align-items-center">
+                <p>Wind</p>
+                <span>15 km/h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- forecast -->
+      <section class="forecast">
+        <div class="container">
+          <h2 class="text-center">7-Day Forecast</h2>
+          <div class="forecast_cards d-flex justify-content-around">
+            <div class="card">
+              <img src="./image/weather/clear.svg" alt="" />
+              <p>Monday</p>
+              <span>28°C</span>
+            </div>
+            <div class="card">
+              <img src="./image/weather/clear.svg" alt="" />
+              <p>Tuesday</p>
+              <span>26°C</span>
+            </div>
+            <div class="card">
+              <img src="./image/weather/clear.svg" alt="" />
+              <p>Wednesday</p>
+              <span>24°C</span>
+            </div>
+            <div class="card">
+              <img src="./image/weather/clear.svg" alt="" />
+              <p>Thursday</p>
+              <span>22°C</span>
+            </div>
+            <div class="card">
+              <img src="./image/weather/clear.svg" alt="" />
+              <p>Friday</p>
+              <span>20°C</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- footer -->
+    <footer>
+      <div class="container text-center">
+        <p>&copy; 2023 HitRadio. All rights reserved.</p>
+      </div>
+    </footer>
     <!-- Bootstrap js -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
