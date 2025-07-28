@@ -1,0 +1,86 @@
+/* globals */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --primary-color: #ff7a30;
+  --secondary-color: #465c88;
+  --background-color: #e9e3df;
+  --text-color: #000000;
+  --body--background-color: #f5f5f5;
+}
+/* body */
+body {
+  background-color: var(--body--background-color);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  line-height: 1.6;
+}
+/* header */
+header {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 20px;
+  text-align: center;
+}
+header .navbar {
+  background-color: var(--primary-color)!important;
+}
+header .navbar-brand {
+  color: var(--text-color)!important;
+  font-size: 2rem;
+}
+
+header .navbar-brand strong{
+    color: var(--secondary-color);
+}
+header .container-fluid h1 {
+  position: relative;
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+header .container-fluid h1::before {
+  content: '';
+  position: absolute;
+  top: 80%;
+  left: 95% ;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  transform: translateY(-50%);
+  margin: 0;
+}
+.container-fluid .pays {
+    color: var(--body--background-color);
+    font-weight: bold;
+}
+/* search button */
+.button_search button {
+    border: 0px solid var(--secondary-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background-color: var(--body--background-color);
+}
+.button_search button:hover {
+    background-color: none;
+}
+.button_search button i {
+    color: var(--text-color);
+    font-size: 20px;
+}
+.button_search button:hover i {
+    color: var(--secondary-color);
+}
+header .container-fluid .icons i{
+    cursor: pointer;
+}
+header .container-fluid .icons .fa-solid {
+    color: white !important;
+    font-size: 20px;
+}
