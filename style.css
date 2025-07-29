@@ -121,7 +121,7 @@ header .container-fluid .icons .fa-solid {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   color: var(--secondary-color);
 }
-.hero .container .hero-content .weather_info p{
+.hero .container .hero-content .weather_info p {
   color: var(--text-color);
 }
 /* hero responsive */
@@ -134,14 +134,15 @@ header .container-fluid .icons .fa-solid {
   }
 }
 /* Humidity and wind  */
-.humidity_wind .container .humidity{
+.humidity_wind .container .humidity {
   font-size: 35px;
   font-weight: bold;
 }
-.humidity_wind .container .humidity .humidity_info .humidity_details p , .wind_details p{
+.humidity_wind .container .humidity .humidity_info .humidity_details p,
+.wind_details p {
   color: var(--secondary-color);
 }
-.humidity_wind .container .wind_info{
+.humidity_wind .container .wind_info {
   font-size: 35px;
   font-weight: bold;
 }
@@ -159,7 +160,10 @@ header .container-fluid .icons .fa-solid {
   font-weight: bold;
   margin-bottom: 30px;
 }
-.forecast_cards  .card{
+.forecast_cards {
+  gap: 20px;
+}
+.forecast_cards .card {
   background-color: var(--body--background-color);
   border: 1px solid var(--secondary-color);
   border-radius: 10px;
@@ -167,19 +171,58 @@ header .container-fluid .icons .fa-solid {
   margin-bottom: 20px;
   text-align: center;
   font-weight: bold;
+  width: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 /* forecast responsive */
 @media (max-width: 480px) {
   .forecast .container .text-center {
     font-size: 20px;
   }
+  .forecast_cards {
+    margin: 0 auto;
+    overflow: scroll;
+    gap: 15px;
+  }
+  .forecast_cards::-webkit-scrollbar {
+    height: 8px;
+  }
+  .forecast_cards::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+  }
+  .forecast_cards::-webkit-scrollbar-track {
+    background-color: none;
+  }
   .forecast_cards .card {
     padding: 10px;
     font-weight: bold;
+    width: 30% !important;
+    flex: 0 0 auto;
   }
-  .forecast_cards .card p{
+  .forecast_cards .card p {
     font-size: 8px;
   }
+}
+/* not found */
+.not_found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 80vh;
+  padding: 50px 0;
+}
+.not_found img {
+  width: 500px;
+}
+/* not found responsive */
+@media (max-width: 480px) {
+  .not_found img {
+    width: 100%;
+    height: 100%;
+  }
+
 }
 /* footer */
 footer {

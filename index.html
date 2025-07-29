@@ -76,15 +76,19 @@
       <!-- Humidity and wind  -->
       <section class="humidity_wind">
         <div class="container">
-          <div class="humidity d-flex justify-content-around align-items-center">
-            <div class="humidity_info d-flex  align-items-center">
+          <div
+            class="humidity d-flex justify-content-around align-items-center"
+          >
+            <div class="humidity_info d-flex align-items-center">
               <i class="fa-solid fa-droplet"></i>
-              <div class="humidity_details d-flex flex-column align-items-center">
+              <div
+                class="humidity_details d-flex flex-column align-items-center"
+              >
                 <p>Humidity</p>
                 <span>60%</span>
               </div>
             </div>
-            <div class="wind_info d-flex  align-items-center">
+            <div class="wind_info d-flex align-items-center">
               <i class="fa-solid fa-wind"></i>
               <div class="wind_details d-flex flex-column align-items-center">
                 <p>Wind</p>
@@ -98,7 +102,9 @@
       <section class="forecast">
         <div class="container">
           <h2 class="text-center">7-Day Forecast</h2>
-          <div class="forecast_cards d-flex justify-content-around">
+          <div
+            class="forecast_cards d-flex justify-content-between align-items-center g-3"
+          >
             <div class="card">
               <img src="./image/weather/clear.svg" alt="" />
               <p>Monday</p>
@@ -128,6 +134,14 @@
         </div>
       </section>
     </main>
+    <!-- Not found -->
+    <section class="not_found d-none">
+      <img src="./image/message/not-found.png" />
+      <div class="container text-center">
+        <h2>Weather data not found</h2>
+        <p>Please check your internet connection or try again later.</p>
+      </div>
+    </section>
     <!-- footer -->
     <footer>
       <div class="container text-center">
