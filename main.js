@@ -12,7 +12,8 @@ const humidity1 = document.querySelector(".humidity_number");
 const windSpeed = document.querySelector(".wind_number");
 // Weather img
 const weather_img = document.querySelector(".img_weatherw_img");
-
+// forecast items cards
+const forecast_items = document.querySelector(".forecast_cards");
 // api key
 const API_KEY = "b25ff00995790f83b8114ff7572487f6";
 // Search button event listener
@@ -20,6 +21,7 @@ Search_btn.addEventListener("click", (e) => {
   e.preventDefault();
   if (City_input.value.trim() != "") {
     UpdateWeather(City_input.value);
+    UpdateForecast(City_input.value);
     City_input.value = "";
   } else {
     alert("Please enter a city name.");
@@ -101,6 +103,40 @@ function getWeatherImage(id) {
   } else if (id >= 801 && id <= 804) {
     return "clouds.svg";
   }
+}
+// Update Forecast function
+async function UpdateForecast(city) {
+  const ForecastData = await getFetchData("forecast", city);
+  const timeTaken = "12:00:00";
+  const todayDate = new Date().toISOString().split("T")[0];
+  forecast_items.innerHTML = "";
+  ForecastData.list.forEach((forecastWeather) => {
+    if (
+      forecastWeather.dt_txt.includes(timeTaken) &&
+      !forecastWeather.dt_txt.includes(todayDate)
+    ) {
+      // Update forecast item
+      UpdateForecastItem(forecastWeather);
+    }
+  });
+  // console.log(todayDate);
+}
+// Update Forecast Item function
+function UpdateForecastItem(weatherData) {
+  const {
+    main: { temp },
+    weather: [{ id, main }],
+    dt_txt,
+  } = weatherData;
+  const forecastItem = document.createElement("div");
+  forecastItem.classList.add("card");
+
+  forecastItem.innerHTML = `
+    <img src="./image/weather/${getWeatherImage(id)}" alt="" />
+    <p>${new Date(dt_txt).toLocaleDateString()}</p>
+    <span>${Math.round(temp)}°C</span>
+  `;
+  forecast_items.insertAdjacentElement("beforeend", forecastItem);
 }
 // Dark mode toggle
 const icon_dark_mode = document.querySelector(".icon_dark_mode");
