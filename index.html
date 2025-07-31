@@ -15,18 +15,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
     />
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Noto+Serif+Dives+Akuru&family=Oswald:wght@200..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-      rel="stylesheet"
-    />
     <!-- style css -->
     <link rel="stylesheet" href="style.css" />
     <title>HitRadio</title>
   </head>
-  <body>
+  <body >
     <!-- Header -->
     <header>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -52,7 +45,28 @@
             </form>
           </div>
           <div class="icons">
-            <i class="fa-solid fa-sun"></i>
+            <svg class="icon_dark_mode"
+              xmlns="http://www.w3.org/2000/svg"
+              height="40px"
+              viewBox="0 -960 960 960"
+              width="40px"
+              fill="#e3e3e3"
+            >
+              <path
+                d="M495.54-298.36q75.66 0 128.98-53.16 53.33-53.17 53.33-128.86 0-75.7-53.33-129.02-53.32-53.32-128.98-53.32-19.33 0-37.89 4.31-18.55 4.31-36.62 12.54 48.66 22.63 77.47 67.1 28.81 44.46 28.81 98.23t-28.81 98.36q-28.81 44.6-77.47 67.38 18.05 7.82 36.61 12.13 18.57 4.31 37.9 4.31ZM480.41-56.1 354.38-180H180v-174.38L54.62-480 180-605.62V-780h174.38l126.03-125.38L605.62-780H780v174.38L905.38-480 780-354.38V-180H605.62L480.41-56.1Zm0-70.77L584.3-230.26h145.44V-375.5L834.21-480 729.7-584.5v-145.24H584.46L480.41-834.21 375.54-729.74H230.3v145.24L125.79-480l104.47 104.5v145.24h144.87l105.28 103.39Zm0-353.54Z"
+              />
+            </svg>
+            <svg class="icon_light_mode"
+              xmlns="http://www.w3.org/2000/svg"
+              height="40px"
+              viewBox="0 -960 960 960"
+              width="40px"
+              fill="#e3e3e3"
+            >
+              <path
+                d="M480-350.26q53.79 0 91.77-37.97 37.97-37.98 37.97-91.77t-37.97-91.77q-37.98-37.97-91.77-37.97t-91.77 37.97q-37.97 37.98-37.97 91.77t37.97 91.77q37.98 37.97 91.77 37.97Zm0 50.26q-74.92 0-127.46-52.54Q300-405.08 300-480q0-74.92 52.54-127.46Q405.08-660 480-660q74.92 0 127.46 52.54Q660-554.92 660-480q0 74.92-52.54 127.46Q554.92-300 480-300ZM200-454.87H50v-50.26h150v50.26Zm710 0H760v-50.26h150v50.26ZM454.87-760v-150h50.26v150h-50.26Zm0 710v-150h50.26v150h-50.26ZM265.9-660.72l-93.28-90.46 35.61-37.2 90.23 92.69-32.56 34.97Zm486.28 488.69-91.26-92.89 33.85-34.77 92.61 90.87-35.2 36.79Zm-91.87-522.74 90.87-92.61 37.2 35.2-92.28 91.05-35.79-33.64ZM172.03-208.23l92.48-91.26 34.41 34-90.48 93.26-36.41-36ZM480-480Z"
+              />
+            </svg>
           </div>
         </div>
       </nav>
@@ -66,7 +80,12 @@
             class="hero-content d-flex justify-content-around align-items-center"
           >
             <div class="img_weather">
-              <img class="img_weatherw_img" src="./image/weather/clouds.svg" alt="" srcset="" />
+              <img
+                class="img_weatherw_img"
+                src="./image/weather/clouds.svg"
+                alt=""
+                srcset=""
+              />
             </div>
             <div class="weather_info">
               <h2 class="location_date">Casablanca</h2>
@@ -79,7 +98,9 @@
       <!-- Humidity and wind  -->
       <section class="humidity_wind">
         <div class="container">
-          <div class="humidity d-flex justify-content-around align-items-center">
+          <div
+            class="humidity d-flex justify-content-around align-items-center"
+          >
             <div class="humidity_info d-flex align-items-center">
               <i class="fa-solid fa-droplet"></i>
               <div

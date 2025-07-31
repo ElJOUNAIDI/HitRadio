@@ -71,35 +71,47 @@ async function UpdateWeather(city) {
   windSpeed.textContent = `${Math.round(speed)} km/h`;
   // weather image
   weather_img.src = `./image/weather/${getWeatherImage(id)}`;
-
 }
 // Update location name function
 function updateLocationName(name) {
-    location_name_elements.forEach(element => {
-        element.textContent = name;
-    });
+  location_name_elements.forEach((element) => {
+    element.textContent = name;
+  });
 }
 // Update temperature function
 function updateTemperature(temp) {
-    temperature1.forEach(element => {
-        element.textContent = Math.round(temp) + "°C";
-    }); 
+  temperature1.forEach((element) => {
+    element.textContent = Math.round(temp) + "°C";
+  });
 }
 // Get weather image function
 function getWeatherImage(id) {
-    if (id <= 232) {
-        return "thunderstorm.svg";
-    } else if (id <= 321) {
-      return "drizzle.svg";
-    }else if (id <= 531) {
-        return "rain.svg";
-    } else if (id <= 622) {
-        return "snow.svg";
-    } else if (id <= 781) {
-        return "atmosphere.svg";
-    } else if (id === 800) {
-        return "clear.svg";
-    } else if (id >= 801 && id <= 804) {
-        return "clouds.svg";
-    }
+  if (id <= 232) {
+    return "thunderstorm.svg";
+  } else if (id <= 321) {
+    return "drizzle.svg";
+  } else if (id <= 531) {
+    return "rain.svg";
+  } else if (id <= 622) {
+    return "snow.svg";
+  } else if (id <= 781) {
+    return "atmosphere.svg";
+  } else if (id === 800) {
+    return "clear.svg";
+  } else if (id >= 801 && id <= 804) {
+    return "clouds.svg";
+  }
 }
+// Dark mode toggle
+const icon_dark_mode = document.querySelector(".icon_dark_mode");
+const icon_light_mode = document.querySelector(".icon_light_mode");
+icon_dark_mode.addEventListener("click", () => {
+  document.body.classList.add("Dark_Mode");
+  icon_dark_mode.style.display = "none";
+  icon_light_mode.style.display = "block";
+});
+icon_light_mode.addEventListener("click", () => {
+  document.body.classList.remove("Dark_Mode");
+  icon_dark_mode.style.display = "block";
+  icon_light_mode.style.display = "none";
+});

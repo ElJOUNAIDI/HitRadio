@@ -11,6 +11,15 @@
   --text-color: #000000;
   --body--background-color: #f5f5f5;
 }
+/* Dark Mode */
+.Dark_Mode {
+  --primary-color: #ff7a30;
+  --secondary-color: #465c88;
+  --background-color: #1a1a1a;
+  --text-color: #ffffff;
+  --body--background-color: #121212;
+}
+
 /* body */
 body {
   background-color: var(--body--background-color);
@@ -80,12 +89,22 @@ header .container-fluid h1::before {
 .button_search button:hover i {
   color: var(--secondary-color);
 }
-header .container-fluid .icons i {
+header .container-fluid .icons .icon_dark_mode {
+  cursor: pointer;
+  fill: black;
+}
+header .container-fluid .icons svg{
   cursor: pointer;
 }
-header .container-fluid .icons .fa-solid {
-  color: white !important;
-  font-size: 20px;
+header .container-fluid .icons svg:last-child {
+  display: none !important;
+}
+.Dark_Mode header .container-fluid .icons svg:first-child {
+  display: none !important;
+}
+.Dark_Mode header .container-fluid .icons svg:last-child {
+  display: block !important;
+  
 }
 /* header Responsive */
 @media (max-width: 480px) {
@@ -99,8 +118,8 @@ header .container-fluid .icons .fa-solid {
   .button_search {
     margin-top: 20px;
   }
-  .container-fluid .icons i {
-    margin-top: 20px;
+  .container-fluid .icons  {
+    margin-top: auto;
   }
 }
 /* hero */
@@ -138,9 +157,17 @@ header .container-fluid .icons .fa-solid {
   font-size: 35px;
   font-weight: bold;
 }
+.humidity_wind .container .humidity .humidity_info i,
+.wind_info i {
+  color: var(--text-color);
+}
 .humidity_wind .container .humidity .humidity_info .humidity_details p,
 .wind_details p {
   color: var(--secondary-color);
+}
+.humidity_wind .container .humidity .humidity_info .humidity_details span,
+.wind_details span {
+  color: var(--text-color);
 }
 .humidity_wind .container .wind_info {
   font-size: 35px;
@@ -173,6 +200,10 @@ header .container-fluid .icons .fa-solid {
   font-weight: bold;
   width: 50%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.forecast_cards .card p,
+span {
+  color: var(--text-color);
 }
 /* forecast responsive */
 @media (max-width: 480px) {
@@ -222,13 +253,13 @@ header .container-fluid .icons .fa-solid {
     width: 100%;
     height: 100%;
   }
-
 }
 /* footer */
 footer {
   background-color: var(--primary-color);
   color: var(--body--background-color);
   padding: 20px 0;
+  font-weight: bold;
 }
 footer .container {
   margin: 0 auto;
