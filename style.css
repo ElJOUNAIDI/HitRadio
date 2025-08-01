@@ -93,7 +93,7 @@ header .container-fluid .icons .icon_dark_mode {
   cursor: pointer;
   fill: black;
 }
-header .container-fluid .icons svg{
+header .container-fluid .icons svg {
   cursor: pointer;
 }
 header .container-fluid .icons svg:last-child {
@@ -104,7 +104,6 @@ header .container-fluid .icons svg:last-child {
 }
 .Dark_Mode header .container-fluid .icons svg:last-child {
   display: block !important;
-  
 }
 /* header Responsive */
 @media (max-width: 480px) {
@@ -115,10 +114,13 @@ header .container-fluid .icons svg:last-child {
     font-size: 30px;
     text-align: center;
   }
+  header .container-fluid .pays {
+    width: 118px;
+  }
   .button_search {
     margin-top: 20px;
   }
-  .container-fluid .icons  {
+  .container-fluid .icons {
     margin-top: auto;
   }
 }
@@ -180,17 +182,22 @@ header .container-fluid .icons svg:last-child {
     font-size: 20px;
   }
 }
-/* forecast */
-.forecast .container .text-center {
+/* forecast hour */
+
+/* forecast days */
+.forecast .container .text-center,
+.forecast_hour .container .text-center {
   color: var(--secondary-color);
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 30px;
 }
-.forecast_cards {
+.forecast_cards,
+.forecast_cards_hour {
   gap: 20px;
 }
-.forecast_cards .card {
+.forecast_cards .card,
+.forecast_cards_hour .card {
   background-color: var(--body--background-color);
   border: 1px solid var(--secondary-color);
   border-radius: 10px;
@@ -207,25 +214,31 @@ span {
 }
 /* forecast responsive */
 @media (max-width: 480px) {
-  .forecast .container .text-center {
+  .forecast .container .text-center,
+  .forecast_hour .container .text-center {
     font-size: 20px;
   }
-  .forecast_cards {
+  .forecast_cards,
+  .forecast_cards_hour {
     margin: 0 auto;
     overflow: scroll;
     gap: 15px;
   }
-  .forecast_cards::-webkit-scrollbar {
+  .forecast_cards::-webkit-scrollbar,
+  .forecast_cards_hour::-webkit-scrollbar {
     height: 8px;
   }
-  .forecast_cards::-webkit-scrollbar-thumb {
+  .forecast_cards::-webkit-scrollbar-thumb,
+  .forecast_cards_hour::-webkit-scrollbar-thumb {
     background-color: var(--secondary-color);
     border-radius: 10px;
   }
-  .forecast_cards::-webkit-scrollbar-track {
+  .forecast_cards::-webkit-scrollbar-track,
+  .forecast_cards_hour::-webkit-scrollbar-track {
     background-color: none;
   }
-  .forecast_cards .card {
+  .forecast_cards .card,
+  .forecast_cards_hour .card {
     padding: 10px;
     font-weight: bold;
     width: 30% !important;
@@ -246,6 +259,10 @@ span {
 }
 .not_found img {
   width: 500px;
+}
+.not_found h2,
+p {
+  color: var(--text-color);
 }
 /* not found responsive */
 @media (max-width: 480px) {

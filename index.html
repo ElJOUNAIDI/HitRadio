@@ -34,6 +34,7 @@
           <div class="button_search">
             <form class="d-flex" role="search">
               <input
+                id="locationInput"
                 class="form-control me-2"
                 type="search"
                 placeholder="Search"
@@ -82,12 +83,7 @@
             class="hero-content d-flex justify-content-around align-items-center"
           >
             <div class="img_weather">
-              <img
-                class="img_weatherw_img"
-                src="./image/weather/clouds.svg"
-                alt=""
-                srcset=""
-              />
+              <img class="img_weatherw_img" src="" alt="" srcset="" />
             </div>
             <div class="weather_info">
               <h2 class="location_date">Casablanca</h2>
@@ -122,46 +118,29 @@
           </div>
         </div>
       </section>
-      <!-- forecast -->
+      <!-- forecast Hour -->
+      <section class="forecast_hour">
+        <div class="container">
+          <h2 class="text-center">Hours Forecast</h2>
+          <div
+            class="forecast_cards_hour d-flex justify-content-between align-items-center g-3"
+          ></div>
+        </div>
+      </section>
+      <!--  forecast 5 days-->
       <section class="forecast">
         <div class="container">
           <h2 class="text-center">4-Day Forecast</h2>
           <div
             class="forecast_cards d-flex justify-content-between align-items-center g-3"
-          >
-            <!-- <div class="card">
-              <img src="./image/weather/clear.svg" alt="" />
-              <p>Monday</p>
-              <span>28°C</span>
-            </div>
-            <div class="card">
-              <img src="./image/weather/clear.svg" alt="" />
-              <p>Tuesday</p>
-              <span>26°C</span>
-            </div>
-            <div class="card">
-              <img src="./image/weather/clear.svg" alt="" />
-              <p>Wednesday</p>
-              <span>24°C</span>
-            </div>
-            <div class="card">
-              <img src="./image/weather/clear.svg" alt="" />
-              <p>Thursday</p>
-              <span>22°C</span>
-            </div>
-            <div class="card">
-              <img src="./image/weather/clear.svg" alt="" />
-              <p>Friday</p>
-              <span>20°C</span>
-            </div> -->
-          </div>
+          ></div>
         </div>
       </section>
     </main>
     <!-- Not found -->
     <section class="not_found d-none">
       <img src="./image/message/not-found.png" />
-      <div class="container text-center">
+      <div class="container text-center mt-2">
         <h2>Weather data not found</h2>
         <p>Please check your internet connection or try again later.</p>
       </div>

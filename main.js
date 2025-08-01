@@ -14,6 +14,8 @@ const windSpeed = document.querySelector(".wind_number");
 const weather_img = document.querySelector(".img_weatherw_img");
 // forecast items cards
 const forecast_items = document.querySelector(".forecast_cards");
+// forecast items cards for hours
+const forecast_items_hour = document.querySelector(".forecast_cards_hour");
 // api key
 const API_KEY = "b25ff00995790f83b8114ff7572487f6";
 // Search button event listener
@@ -21,6 +23,7 @@ Search_btn.addEventListener("click", (e) => {
   e.preventDefault();
   if (City_input.value.trim() != "") {
     UpdateWeather(City_input.value);
+    UpdateForecastHours(City_input.value);
     UpdateForecast(City_input.value);
     City_input.value = "";
   } else {
@@ -28,13 +31,13 @@ Search_btn.addEventListener("click", (e) => {
   }
 });
 // City input event listener
-City_input.addEventListener("keydown", (e) => {
-  if (e.key === "Enter" && City_input.value.trim() != "") {
-    e.preventDefault(City_input.value);
-    UpdateWeather();
-    City_input.value = "";
-  }
-});
+// City_input.addEventListener("keydown", (e) => {
+//   if (e.key === "Enter" && City_input.value.trim() != "") {
+//     e.preventDefault(City_input.value);
+//     UpdateWeather();
+//     City_input.value = "";
+//   }
+// });
 // Fetch data function
 async function getFetchData(endPoint, city) {
   const ApiUrl = `https://api.openweathermap.org/data/2.5/${endPoint}?q=${city}&appid=${API_KEY}&units=metric`;
@@ -54,7 +57,7 @@ async function getFetchData(endPoint, city) {
 // Update weather function
 async function UpdateWeather(city) {
   const WeatherData = await getFetchData("weather", city);
-  console.log(WeatherData);
+  // console.log(WeatherData);
   const {
     name: country,
     main: { temp, humidity },
@@ -104,7 +107,7 @@ function getWeatherImage(id) {
     return "clouds.svg";
   }
 }
-// Update Forecast function
+// Update Forecast 5 days function
 async function UpdateForecast(city) {
   const ForecastData = await getFetchData("forecast", city);
   const timeTaken = "12:00:00";
@@ -138,6 +141,82 @@ function UpdateForecastItem(weatherData) {
   `;
   forecast_items.insertAdjacentElement("beforeend", forecastItem);
 }
+// Update Forcecast heures function
+async function UpdateForecastHours(city) {
+  const ForecastData = await getFetchData("forecast", city);
+  const currentHour = new Date().getHours(); // Heure actuelle
+
+  forecast_items_hour.innerHTML = "";
+  const seenHours = new Set();
+  ForecastData.list.forEach((forecastWeather_hours) => {
+    const forecastDate = new Date(forecastWeather_hours.dt * 1000); // Pour afficher l'heure;
+    const forecastHour = forecastDate.getHours(); // Heure de prévision
+    if (seenHours.has(forecastHour)) {
+      return; // Ignore les doublons
+    }
+
+    seenHours.add(forecastHour);
+    // Vérifie si l'heure de prévision est dans les prochaines heures
+    if (forecastHour > currentHour) {
+      // afficher les prévisions toutes les 3 heures
+      UpdateForecastItem_hours(forecastWeather_hours);
+    }
+  });
+}
+// Update Forecast Item for hours function
+function UpdateForecastItem_hours(weatherData_hours) {
+  const {
+    main: { temp },
+    weather: [{ id, main }],
+    dt,
+  } = weatherData_hours;
+
+  const forecastItem_hours = document.createElement("div");
+  forecastItem_hours.classList.add("card");
+
+  forecastItem_hours.innerHTML = `
+        <img src="./image/weather/${getWeatherImage(id)}" alt="" />
+        <p>${new Date(dt * 1000).toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        })}</p>
+        <span>${Math.round(temp)}°C</span>
+    `;
+  console.log(forecastItem_hours);
+  forecast_items_hour.insertAdjacentElement("beforeend", forecastItem_hours);
+}
+// location input event listener
+document.addEventListener("DOMContentLoaded", () => {
+  // Fonction pour obtenir la localisation de l'utilisateur
+  function setDefaultLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          fetch(
+            `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=fr`
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              const locationInput = document.getElementById("locationInput");
+              locationInput.value = data.city || data.countryName; // Remplit le champ avec la ville ou le pays
+              UpdateWeather(locationInput.value);
+              UpdateForecastHours(locationInput.value);
+              UpdateForecast(locationInput.value);
+            });
+        },
+        (error) => {
+          console.error("Erreur de géolocalisation :", error);
+        }
+      );
+    } else {
+      console.error("Géolocalisation non supportée");
+    }
+  }
+
+  // Appeler la fonction pour définir la localisation par défaut
+  setDefaultLocation();
+});
 // Dark mode toggle
 const icon_dark_mode = document.querySelector(".icon_dark_mode");
 const icon_light_mode = document.querySelector(".icon_light_mode");
