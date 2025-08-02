@@ -154,13 +154,9 @@ async function UpdateForecastHours(city) {
     if (seenHours.has(forecastHour)) {
       return; // Ignore les doublons
     }
-
     seenHours.add(forecastHour);
-    // Vérifie si l'heure de prévision est dans les prochaines heures
-    if (forecastHour > currentHour) {
       // afficher les prévisions toutes les 3 heures
       UpdateForecastItem_hours(forecastWeather_hours);
-    }
   });
 }
 // Update Forecast Item for hours function
@@ -182,7 +178,6 @@ function UpdateForecastItem_hours(weatherData_hours) {
         })}</p>
         <span>${Math.round(temp)}°C</span>
     `;
-  console.log(forecastItem_hours);
   forecast_items_hour.insertAdjacentElement("beforeend", forecastItem_hours);
 }
 // location input event listener
